@@ -1,0 +1,48 @@
+
+import flash.net.URLLoader;
+import flash.net.URLRequest;
+import flash.events.Event;
+import flash.display.MovieClip;
+import flash.display.SimpleButton;
+             
+		var xmlLoader:URLLoader = new URLLoader(new URLRequest("Menu.xml"));
+		
+		xmlLoader.addEventListener(Event.COMPLETE, onCompleteXmlLoad);
+		
+		var xmlFile:XML;
+		
+		 function onCompleteXmlLoad(e:Event):void{
+			xmlFile = new XML(xmlLoader.data);
+			trace(xmlFile.photo.url);
+		
+		
+			var gal:gallery = new gallery();
+			gal.x = 10;
+			gal.y = 10;
+			addChild(gal);
+		
+			var a:btnA = new btnA();
+			a.x = 10;
+			a.y = 310;
+			addChild(a);
+			
+			var b:btnB = new btnB();
+			b.x = 110;
+			b.y = 310;
+			addChild(b);
+			
+			var c:btnC = new btnC();
+			c.x = 210;
+			c.y = 310;
+			addChild(c);
+			
+			var d:btnD = new btnD();
+			d.x = 310;
+			d.y = 310;
+			addChild(d);
+			
+			var loader:Loader = new Loader();
+			loader.load(new URLRequest("1.jpg"));
+			gal.addChild(loader);
+		
+		}
